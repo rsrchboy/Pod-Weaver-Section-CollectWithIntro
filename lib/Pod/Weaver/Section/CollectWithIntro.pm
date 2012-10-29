@@ -5,10 +5,20 @@ package Pod::Weaver::Section::CollectWithIntro;
 use Moose;
 use namespace::autoclean;
 use autobox::Core;
-use MooseX::AttributeShortcuts 0.015;
-use Pod::Elemental::Element::Pod5::Ordinary; 
+use aliased 'Pod::Elemental::Element::Pod5::Ordinary';
 
 extends 'Pod::Weaver::Section::Collect';
+
+=attr content *required*
+
+The intro paragraph.  Right now this is expected to be a bog-simple string.
+Using POD or other bits will probably be supported down the road, but for now,
+it's just a string.
+
+This is wrapped in a L<Pod::Elemental::Element::Pod5::Ordinary> and included
+after the section header but before any of the elements.
+
+=cut
 
 has content => (is => 'ro', isa => 'Str', required => 1);
 
@@ -18,7 +28,7 @@ before weave_section => sub {
     return unless $self->__used_container;
 
     ### make our paragraph node here...
-    my $para = Pod::Elemental::Element::Pod5::Ordinary->new(
+    my $para = Ordinary->new(
         content => $self->content,
     );
 
