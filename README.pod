@@ -10,7 +10,7 @@ Pod::Weaver::Section::CollectWithIntro - Preface pod collections
 
 =head1 VERSION
 
-This document describes version 0.000_01 of Pod::Weaver::Section::CollectWithIntro - released October 27, 2012 as part of Pod-Weaver-Section-CollectWithIntro.
+This document describes version 0.001 of Pod::Weaver::Section::CollectWithIntro - released October 29, 2012 as part of Pod-Weaver-Section-CollectWithIntro.
 
 =head1 SYNOPSIS
 
@@ -40,6 +40,17 @@ This document describes version 0.000_01 of Pod::Weaver::Section::CollectWithInt
 This is a subclass of L<Pod::Weaver::Section::Collect> that allows one to
 attach a prefix paragraph to the collected section/node.
 
+=head1 ATTRIBUTES
+
+=head2 content *required*
+
+The intro paragraph.  Right now this is expected to be a bog-simple string.
+Using POD or other bits will probably be supported down the road, but for now,
+it's just a string.
+
+This is wrapped in a L<Pod::Elemental::Element::Pod5::Ordinary> and included
+after the section header but before any of the elements.
+
 =head1 SEE ALSO
 
 Please see those modules/websites for more information related to this module.
@@ -56,6 +67,15 @@ L<Pod::Weaver::Section::Collect>
 
 The development version is on github at L<http://github.com/RsrchBoy/Pod-Weaver-Section-CollectWithIntro>
 and may be cloned from L<git://github.com/RsrchBoy/Pod-Weaver-Section-CollectWithIntro.git>
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website
+https://github.com/RsrchBoy/Pod-Weaver-Section-CollectWithIntro/issues
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
 
 =head1 AUTHOR
 

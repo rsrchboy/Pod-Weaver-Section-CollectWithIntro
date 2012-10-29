@@ -1,3 +1,6 @@
 Revision history for Pod-Weaver-Section-CollectWithIntro
 
 {{$NEXT}}
+
+0.001     2012-10-29 12:32:46 PST8PDT
+	* initial release; supports basic prefacing
